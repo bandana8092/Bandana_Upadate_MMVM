@@ -25,7 +25,7 @@ class PostsTableViewCell: UITableViewCell {
     }
     func updateCellOutlets(model: Posts) {
         self.titleLabel.text = model.name
-        self.dateLabel.text = model.createdDate.convertdateToFormate(formate: "dd mm YYY")
+        self.dateLabel.text = model.createdDate.convertdateToFormate(formate: "dd mm YYYY")
         self.switchStatus.isOn = model.isOn
     }
     
