@@ -10,15 +10,12 @@ import Foundation
 
 class PostsViewModel {
     var posts: [Posts] = [Posts]()
-    var refreshing = false
     var pageNo = 1
     var totalPageNo = 1
     var selectedPostsCount = 0
     func fetch(completion: @escaping () -> Void) {
-        refreshing = true
         ServiceManager.shared.fetchPostssWith(pageNo: pageNo,
         totalPageNo: totalPageNo, compltionHandler: { (serverData, status) in
-            self.refreshing = false
             switch status {
             case .success:
                 let posts = serverData?[ServerKeys.keyHits] as? [Any]
